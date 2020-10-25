@@ -1,0 +1,30 @@
+.image {
+    display: flex;
+    width: 25%;
+
+    .responsiveImage {
+        height: auto;
+        width: 100%;
+    }
+}
+
+.resultCard {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 5%;
+    width: 80%;
+    opacity: 0.9;
+    padding: 5%;
+
+
+h1 {
+    width: 20%;
+
+}
+
+p {
+    width: 30%;
+}
+
+}
