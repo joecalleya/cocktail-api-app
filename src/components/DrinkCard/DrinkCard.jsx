@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './DrinkCard.module.scss'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
  const DrinkCard = (props) => {
 
@@ -10,11 +12,22 @@ import styles from './DrinkCard.module.scss'
         strMeasure3, strMeasure4, strMeasure5, strMeasure6, strMeasure7, strMeasure8, strMeasure9, strMeasure10, 
         strMeasure11, strMeasure12, strMeasure13, strMeasure14, strMeasure15, strCreativeCommonsConfirmed, dateModified } = props.searchResult;
  
+        const {addToSaved} = props
+
+        const handleClick = (e) => {
+            e.stopPropagation();
+            addToSaved(props.searchResult)
+            };
+
     return (
         <div className={styles.resultCard}>
-                <div className={styles.image}>
-                    <img className={styles.responsiveImage} src={strDrinkThumb} alt="Drink"/>
-                </div>
+            <div className={styles.image}>
+                <img className={styles.responsiveImage} src={strDrinkThumb} alt="Drink"/>
+            </div>
+            <span className={styles.fontAwesome}>
+            <FontAwesomeIcon icon={["far", "heart"]}  onClick={handleClick}
+            />
+            </span>
             <h1>{strDrink}</h1>
             <h1>{strGlass} </h1>
 

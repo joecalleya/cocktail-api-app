@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import styles from './App.css';
 import Dashboard from './containers/Dashboard';
 import library from "./data/fa-library";
+import firebase, { provider } from "./firebase";
+import { firestore } from "./firebase";
 
 let preFiltered  = [];
 
@@ -14,11 +16,14 @@ const App = () => {
   // 2. then let's define the variable we are keeping in state
   const [searchResult , setSearchResult] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
+  const [user, setUser] = useState(null);
 
   // 3. Put useEffect here for onload events
   
   useEffect(() => {
-    getApiData("");
+    //getApiData("");
+    getUser();
+
   }, []);
   useEffect(() => {
     if (searchResult) init()
@@ -36,7 +41,41 @@ const App = () => {
         console.log(err);
       });
     };
+    const addToSaved = (drink) => {
+      console.log("adding to FAVZ");
+      firestore
+        .collection("savedCocktails")
+        .doc(drink.idDrink)
+        .set(drink)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    };
 
+    const signIn = () => {
+      firebase.auth().signInWithRedirect(provider);
+    };
+  
+    const signOut = () => {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          setUser(null);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+  
+    const getUser = () => {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          setUser(user);
+        } else {
+          setUser(null);
+        }
+      });
+    };
   const toggleFilter = (item) => {
     return item = !item;
   }
@@ -65,6 +104,8 @@ const App = () => {
     setFilteredResults(filterResults);
   }
 
+  console.log(user)
+
   // 5. Our return function comes last with nice indents
   return (
    <div className={styles.appContainer}>
@@ -75,8 +116,12 @@ const App = () => {
             filterDrinks={filteredResults}
             toggleFilter={toggleFilter}
             martiniFilter={martiniFilter}
-            // clearFilter={clearFilter}
-          />
+            user={user}
+            signIn={signIn}
+            signOut={signOut}    
+            addToSaved={addToSaved}
+      
+            />
         </div>
     </div>
   );
