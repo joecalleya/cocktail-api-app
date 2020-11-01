@@ -8,12 +8,13 @@ const Dashboard = (props) => {
     const {addToSaved
         ,clearFilter, searchResult 
         , getApiData, filterDrinks 
-        ,toggleFilter, filteredResults
+        ,filterResults, setSearchResult
         ,martiniFilter
         ,signIn
         ,signOut
         ,user
         , } = props;
+    
 
     const contentJsx = searchResult.length ? 
     searchResult.map((item,index) =>

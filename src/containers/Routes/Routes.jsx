@@ -7,9 +7,11 @@ import SavedDrinks from "../SavedDrinks";
 
 const Routes = (props) => {
 
+
+
   const {filteredResults,searchResult 
     ,getApiData, filterDrinks
-    ,toggleFilter,martiniFilter
+    ,setSearchResult,filterResults
     ,signIn
     ,signOut
     ,user
@@ -22,9 +24,8 @@ const Routes = (props) => {
       <Dashboard path="/"
                   getApiData={getApiData}
                   searchResult={searchResult}
-                  filterDrinks={filteredResults}
-                  toggleFilter={toggleFilter}
-                  martiniFilter={martiniFilter}
+                  filterResults={filterResults}
+                  setSearchResult={setSearchResult}
                   user={user}
                   signIn={signIn}
                   signOut={signOut}    

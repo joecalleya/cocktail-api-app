@@ -7,6 +7,7 @@ const Filter = (props) => {
     const {getApiData, searchResult ,filteredResults, filterParameters, setFilterParameters} = props;
 
     //we want to when cliekd allow the user to toggle the TRUE false of the filter paraneter Array.
+
     const toggleFilterOnOff = () => {
         const updatedArray =[];
         filterParameters.map((parameter) => {

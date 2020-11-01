@@ -21,7 +21,6 @@ const App = () => {
                               {name:"MartiniGlass", toggle: false ,columnUsed: 'strGlass' ,value: "Cocktail glass"}, 
                               {name:"TumblerGlass", toggle: false ,columnUsed: 'strGlass' , value: "Highball Glass"}
                             ])
-
   // const filteredResults, setFilteredResults] = useState([]);
   const [user, setUser] = useState(null);
 
@@ -33,10 +32,9 @@ const App = () => {
   }, []);
 
 
-  // useEffect(() => {
-  //   if (searchResult)   init()
-
-  // }, [searchResult])
+  useEffect(() => {
+    if (searchResult) init()
+  }, [searchResult])
 
 
   // 3. Put our functions together
@@ -103,15 +101,15 @@ const App = () => {
         );
       }
     })
-
     // 4. We have our filtered cocktails, save them in state so the page re-renders
-    // setSearchResult(filterResults);
+    if (filterResults.length > 0) 
+      setSearchResult(filterResults)
+
+  console.log('Filter',filterResults,'Search',searchResult)
   }
+
   init()
 
-  if (filterResults.length > 0)
-  // {setSearchResult(filterResults)}
-  console.log('Filter',filterResults,'Search',searchResult.length)
 
 
   // 5. Our return function comes last with nice indents
@@ -130,12 +128,14 @@ const App = () => {
        </div>
       <div className="dash">
           <Routes
-            getApiData={getApiData}
-            searchResult={searchResult}
-            user={user}
-            signIn={signIn}
-            signOut={signOut}    
-            addToSaved={addToSaved}
+                  getApiData={getApiData}
+                  searchResult={searchResult}
+                  filterResults={filterResults}
+                  setSearchResult={setSearchResult}
+                  user={user}
+                  signIn={signIn}
+                  signOut={signOut}    
+                  addToSaved={addToSaved}
             />
         </div>
         <div className={styles.rightbar}>
