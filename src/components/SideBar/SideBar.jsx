@@ -5,11 +5,12 @@ import Filter from "../Filter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@reach/router";
 
+
 const SideBar = (props) => {
 
-    const {clearFilter, filteredResults,searchResult 
-        ,getApiData, filterDrinks
-        ,toggleFilter,martiniFilter
+    const {filteredResults,searchResult 
+        ,getApiData, filterParameters
+        ,setFilterParameters
         ,signIn
         ,signOut
         ,user
@@ -30,24 +31,21 @@ const SideBar = (props) => {
 return (
     <>
         <div className={styles.SideBar}>
+          <Link to="SavedDrinks">
+            <FontAwesomeIcon icon={["fas", "heart"]} />
+          </Link>
             {getSignInOutJsx()}
-            <Link to="SavedDrinks">
-            <FontAwesomeIcon icon={["far", "heart"]} />
-            </Link>
-            <Search
+          <Search
             getApiData={getApiData}
-            searchResult={searchResult}
-            />
-            <Filter 
-            filterDrinks={filterDrinks}
-            searchResult={searchResult}
-            toggleFilter={toggleFilter}
+          />
+          <Filter 
+          filterParameters={filterParameters}
+          searchResult={searchResult}
             filteredResults={filteredResults}
-            martiniFilter={martiniFilter}
-            clearFilter={clearFilter}
+            getApiData={getApiData}
+            setFilterParameters={setFilterParameters}
+
             />
-
-
         </div>
     </>
 )

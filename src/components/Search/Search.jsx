@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Search = (props) => {
 
-    const {searchResult , getApiData} = props;
+    const {getApiData} = props;
 
     return (
         <div>

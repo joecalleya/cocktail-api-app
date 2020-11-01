@@ -1,11 +1,8 @@
-.dashContainer {
-        display: flex;
-        flex-direction: row;
-}
- 
- .dashboard
-    {
-    width:80%;
+
+.dashContainer{
+    width:70%;
     display: flex;
     flex-direction: column;
-    }
+    left:0;
+  }
+  

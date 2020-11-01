@@ -1,33 +1,43 @@
 import React, { useEffect, useState } from "react";
-import logo from './logo.svg';
-import styles from './App.css';
-import Dashboard from './containers/Dashboard';
+import styles from './App.module.scss';
+import Routes from './containers/Routes';
 import library from "./data/fa-library";
 import firebase, { provider } from "./firebase";
 import { firestore } from "./firebase";
+import SideBar from './components/SideBar';
 
 let preFiltered  = [];
 
 const App = () => {
 
   // 1. At the top let's define our variables
-  let martiniFilter = false;
+
+  let filterResults = [];
 
   // 2. then let's define the variable we are keeping in state
   const [searchResult , setSearchResult] = useState('');
-  const [filteredResults, setFilteredResults] = useState([]);
+    // to show as checkboxes on the page
+  const [filterParameters, setFilterParameters] = useState([
+                              {name:"MartiniGlass", toggle: false ,columnUsed: 'strGlass' ,value: "Cocktail glass"}, 
+                              {name:"TumblerGlass", toggle: false ,columnUsed: 'strGlass' , value: "Highball Glass"}
+                            ])
+
+  // const filteredResults, setFilteredResults] = useState([]);
   const [user, setUser] = useState(null);
 
   // 3. Put useEffect here for onload events
   
   useEffect(() => {
-    //getApiData("");
+    getApiData("");
     getUser();
-
   }, []);
-  useEffect(() => {
-    if (searchResult) init()
-  }, [searchResult])
+
+
+  // useEffect(() => {
+  //   if (searchResult)   init()
+
+  // }, [searchResult])
+
 
   // 3. Put our functions together
   const getApiData = (searchWords) => {
@@ -76,9 +86,7 @@ const App = () => {
         }
       });
     };
-  const toggleFilter = (item) => {
-    return item = !item;
-  }
+ 
 
   const init = () => {
     // 1. If we have a search result, set prefiltered to that search result
@@ -86,11 +94,7 @@ const App = () => {
       preFiltered = searchResult
     }
 
-    // 2. Create some filter parameters, to show as checkboxes on the page
-    let filterParameters = [{name:"Martini Filter", toggle: true , columnUsed: 'strGlass'  ,  value: "Cocktail glass"}, {name:"Tumbler Filter", toggle: false ,columnUsed: 'strGlass' , value: "Highball Glass"}];
-
     // 3. Define a filter function for filtring drinks using the filter array 
-    const filterResults = [];
     filterParameters.forEach(parameter => {
       if (parameter.toggle == true) {
         // This filter is active, let's filter the results by it
@@ -101,29 +105,42 @@ const App = () => {
     })
 
     // 4. We have our filtered cocktails, save them in state so the page re-renders
-    setFilteredResults(filterResults);
+    // setSearchResult(filterResults);
   }
+  init()
 
-  console.log(user)
+  if (filterResults.length > 0)
+  // {setSearchResult(filterResults)}
+  console.log('Filter',filterResults,'Search',searchResult.length)
+
 
   // 5. Our return function comes last with nice indents
   return (
-   <div className={styles.appContainer}>
+   <section className={styles.appContainer}>
+      <div className={styles.sidebar}>
+        <SideBar
+          getApiData={getApiData}
+          searchResult={searchResult}
+          filterParameters={filterParameters}
+          setFilterParameters={setFilterParameters}
+          user={user}
+          signIn={signIn}
+          signOut={signOut}
+          />
+       </div>
       <div className="dash">
-          <Dashboard
+          <Routes
             getApiData={getApiData}
             searchResult={searchResult}
-            filterDrinks={filteredResults}
-            toggleFilter={toggleFilter}
-            martiniFilter={martiniFilter}
             user={user}
             signIn={signIn}
             signOut={signOut}    
             addToSaved={addToSaved}
-      
             />
         </div>
-    </div>
+        <div className={styles.rightbar}>
+       </div>
+    </section>
   );
 }
 

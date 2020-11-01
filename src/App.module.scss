@@ -1,22 +1,26 @@
-.SideBar {
+
+
+.appContainer
+{
+  display: flex;
+  flex-direction: row;
+  ;
+}
+
+.rightbar {
     position: sticky;
     display: flex;
     flex-direction: column;
     align-items: center;
     top: 0;
-    left: 0;
+    right: 0;
     font-size: 200%;
     color: white;
     background-color: blue;
     height: 100vw;
-    width: 100%;
-    opacity: .5;
+    width: 30%;
+    opacity: 0.4;
 
-    a {
-        text-decoration: none;
-        color: white;
-
-    }
     
     
 }

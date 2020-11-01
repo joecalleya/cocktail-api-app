@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../firebase";
+import DrinkCard from '../../components/DrinkCard';
+import styles from "./SavedDrinks.module.scss";
 
 
 const SavedDrinks = (props) => {
-  console.log(favourites)
 
     const [favourites, setFavourites] = useState([]);
 
@@ -25,17 +26,21 @@ const SavedDrinks = (props) => {
 
   }, [])
 
-    const favorites = favourites.length ? 
-    favourites.map((item,index) =>
-                    <DrinkCard  
-                    searchResult={item}
-                    key={index}
-                    />
-                    )     
-        : ('no saved')
+
+  const iteratefavourites = favourites.length ? 
+  favourites.map((item,index) =>
+                  <DrinkCard  
+                  searchResult={item}
+                  key={index}
+                  // addToSaved={addToSaved}
+                  />
+                  )     
+      : ('Please Search for cocktal')
     return (
         <div>
-here are the 😋 dfhndthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhffffffffffffffffffffffffffffffffffffffff
+
+          
+          {iteratefavourites}
         </div>
     )
 }

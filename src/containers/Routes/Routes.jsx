@@ -1,23 +1,37 @@
 import React from "react";
 import { Router } from "@reach/router";
-import { firestore } from "../../firebase";
 import Dashboard from "../Dashboard";
-import PrivateRoutes from "../PrivateRoutes";
+// import PrivateRoutes from "../PrivateRoutes";
 import SavedDrinks from "../SavedDrinks";
 
 
 const Routes = (props) => {
-  const { drinkRecipie, user } = props;
 
+  const {filteredResults,searchResult 
+    ,getApiData, filterDrinks
+    ,toggleFilter,martiniFilter
+    ,signIn
+    ,signOut
+    ,user
+    ,addToSaved
+} = props;
 
   return (
+
     <Router>
       <Dashboard path="/"
+                  getApiData={getApiData}
+                  searchResult={searchResult}
+                  filterDrinks={filteredResults}
+                  toggleFilter={toggleFilter}
+                  martiniFilter={martiniFilter}
+                  user={user}
+                  signIn={signIn}
+                  signOut={signOut}    
+                  addToSaved={addToSaved}
       />    
-      {/* <PrivateRoutes path="/"> */}
-        <SavedDrinks path="/SavedDrinks" />
-      {/* </PrivateRoutes> */}
-      <NotFound default />
+
+      <SavedDrinks path="SavedDrinks" />
     </Router>
   );
 };

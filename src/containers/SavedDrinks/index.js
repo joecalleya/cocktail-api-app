@@ -1,2 +1,2 @@
-import SavedDrink from "./SavedDrink";
-export default SavedDrink;
+import SavedDrinks from "./SavedDrinks";
+export default SavedDrinks;

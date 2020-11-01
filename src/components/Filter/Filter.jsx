@@ -4,24 +4,35 @@ import styles from './Filter.module.scss';
 
 const Filter = (props) => {
 
-    const {clearFilter, searchResult ,filteredResults, filterDrinks ,toggleFilter ,martiniFilter} = props;
+    const {getApiData, searchResult ,filteredResults, filterParameters, setFilterParameters} = props;
 
-    const [martiniFilterOnOff,setMartiniFilterOnOff] = useState(martiniFilter);
+    //we want to when cliekd allow the user to toggle the TRUE false of the filter paraneter Array.
+    const toggleFilterOnOff = () => {
+        const updatedArray =[];
+        filterParameters.map((parameter) => {
+            if (parameter.name == "MartiniGlass")
+            {
+              parameter.toggle = !filterParameters.toggle
+              updatedArray.push(parameter)
+            }
+            else 
+            updatedArray.push(parameter)
+            }
+          )
+          setFilterParameters(updatedArray);
+          }
 
     const handleFilterClick = (e) => {
         e.stopPropagation();
-        toggleFilter(martiniFilter);
-        setMartiniFilterOnOff(!martiniFilterOnOff)
-        filterDrinks("GLASS","Cocktail glass",martiniFilterOnOff)
-        console.log("filtered",martiniFilterOnOff,searchResult.length)
-
-        // setFavState(!isFav);
+        console.log("before" ,filterParameters[0].toggle)
+        toggleFilterOnOff();
+        console.log("after" ,filterParameters[0].toggle)
       };
 
-    const handleClearClick = (e) => {
+    const handleClearClear = (e) => {
         e.stopPropagation();
-        clearFilter();
-        console.log("filtered",martiniFilterOnOff)
+        getApiData('');
+        console.log("clear")
 
         // setFavState(!isFav);
       };
@@ -48,7 +59,7 @@ const Filter = (props) => {
             />
             </span>          
             <span
-             onClick={clearFilter}
+             onClick={handleClearClear}
             >
             <FontAwesomeIcon icon="times-circle" 
             />
