@@ -9,32 +9,34 @@ const Routes = (props) => {
 
 
 
-  const {filteredResults,searchResult 
-    ,getApiData, filterDrinks
-    ,setSearchResult,filterResults
-    ,signIn
-    ,signOut
-    ,user
-    ,addToSaved
+  const {
+    searchResult
+    , getApiData
+    , setSearchResult
+    , filterResults
+    , signIn
+    , signOut
+    , user
+    , addToSaved
 } = props;
 
-  return (
+return (
 
-    <Router>
-      <Dashboard path="/"
-                  getApiData={getApiData}
-                  searchResult={searchResult}
-                  filterResults={filterResults}
-                  setSearchResult={setSearchResult}
-                  user={user}
-                  signIn={signIn}
-                  signOut={signOut}    
-                  addToSaved={addToSaved}
-      />    
+  <Router>
+    <Dashboard path="/"
+      getApiData={getApiData}
+      searchResult={searchResult}
+      filterResults={filterResults}
+      setSearchResult={setSearchResult}
+      user={user}
+      signIn={signIn}
+      signOut={signOut}
+      addToSaved={addToSaved}
+    />
 
-      <SavedDrinks path="SavedDrinks" />
-    </Router>
-  );
+    <SavedDrinks path="SavedDrinks" />
+  </Router>
+);
 };
 
 export default Routes;

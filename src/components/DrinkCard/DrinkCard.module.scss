@@ -1,6 +1,6 @@
 .image {
     display: flex;
-    width: 25%;
+    width: 10%;
 
     .responsiveImage {
         height: auto;
@@ -10,27 +10,32 @@
 
 .resultCard {
     display: flex;
-    justify-items: center;
+    justify-content: space-around;
     align-items: center;
     height: 5%;
-    width: 80%;
+    width: 100%;
     opacity: 0.9;
-    padding: 5%;
+    padding: 1%;
 
     .fontAwesome
     {
-        font-size: 200%;
+        font-size: 150%;
+        color: maroon;
+        opacity: 0.5;
     }
 
-
+    span {
+        width: 2%;
+    
+    }
 
 h1 {
-    width: 20%;
+    width: 10%;
 
 }
 
 p {
-    width: 30%;
+    width: 60%;
 }
 
 }

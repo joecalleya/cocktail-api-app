@@ -8,47 +8,47 @@ import { Link } from "@reach/router";
 
 const SideBar = (props) => {
 
-    const {filteredResults,searchResult 
-        ,getApiData, filterParameters
-        ,setFilterParameters
-        ,signIn
-        ,signOut
-        ,user
-    } = props;
+  const { filteredResults, searchResult
+    , getApiData, filterParameters
+    , setFilterParameters
+    , signIn
+    , signOut
+    , user
+  } = props;
 
-    const getSignInOutJsx = () => {
-        return user ? (
-          <span className={styles.faStyles}>
-            <FontAwesomeIcon icon={"sign-out-alt"} onClick={signOut} />
-          </span>
-        ) : (
-          <span className={styles.faStyles}>
-            <FontAwesomeIcon icon={["fab", "google"]} onClick={signIn} />
-          </span>
-        );
-      };
+  const getSignInOutJsx = () => {
+    return user ? (
+      <span className={styles.faStyles}>
+        <FontAwesomeIcon icon={"sign-out-alt"} onClick={signOut} />
+      </span>
+    ) : (
+        <span className={styles.faStyles}>
+          <FontAwesomeIcon icon={["fab", "google"]} onClick={signIn} />
+        </span>
+      );
+  };
 
-return (
+  return (
     <>
-        <div className={styles.SideBar}>
-          <Link to="SavedDrinks">
-            <FontAwesomeIcon icon={["fas", "heart"]} />
-          </Link>
-            {getSignInOutJsx()}
-          <Search
-            getApiData={getApiData}
-          />
-          <Filter 
+      <div className={styles.SideBar}>
+        <Link to="SavedDrinks">
+          <FontAwesomeIcon icon={["fas", "heart"]} />
+        </Link>
+        {getSignInOutJsx()}
+        <Search
+          getApiData={getApiData}
+        />
+        <Filter
           filterParameters={filterParameters}
           searchResult={searchResult}
-            filteredResults={filteredResults}
-            getApiData={getApiData}
-            setFilterParameters={setFilterParameters}
+          filteredResults={filteredResults}
+          getApiData={getApiData}
+          setFilterParameters={setFilterParameters}
 
-            />
-        </div>
+        />
+      </div>
     </>
-)
+  )
 }
 
 export default SideBar;
