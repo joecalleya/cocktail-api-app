@@ -1,3 +1,7 @@
+This project was created using React, using  the Cocktail Database API, it allows filtering, searching, signing in, saving favorite Cocktails.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
