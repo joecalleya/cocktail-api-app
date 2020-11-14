@@ -12,7 +12,8 @@ import {
     faWineGlass,
     faGlassWhiskey,
     faSignOutAlt,
-    faHeart
+    faHeart,
+    faHome
 
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -28,7 +29,9 @@ export default library.add(
     faWineGlass,
     faGlassWhiskey,
     faSignOutAlt,
-    faGoogle
+    faGoogle,
+    faHome
+
 
 
 );

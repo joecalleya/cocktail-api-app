@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { UserProvider } from "./context/userContext";
+import { CrudProvider } from "./context/crudContext";
 import styles from './App.module.scss';
 import Routes from './containers/Routes';
 import library from "./data/fa-library";
@@ -19,7 +21,7 @@ const App = () => {
     { name: "MartiniGlass", toggle: false, columnUsed: 'strGlass', value: "Cocktail glass" },
     { name: "TumblerGlass", toggle: false, columnUsed: 'strGlass', value: "Highball Glass" },
     { name: "WineGlass", toggle: false, columnUsed: 'strGlass', value: "Wine Glass" }
-    
+
   ])
   // const [filteredResults, setFilteredResults] = useState([]);
   const [user, setUser] = useState(null);
@@ -30,7 +32,6 @@ const App = () => {
     getApiData("");
     getUser();
   }, []);
-
 
   // useEffect(() => {
   //   if (searchResult) init()
@@ -48,15 +49,6 @@ const App = () => {
       .catch((err) => {
         console.log(err);
       });
-  };
-  const addToSaved = (drink) => {
-    console.log("adding to FAVZ");
-    firestore
-      .collection("savedCocktails")
-      .doc(drink.idDrink)
-      .set(drink)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
   };
 
   const signIn = () => {
@@ -108,33 +100,39 @@ const App = () => {
   init()
   // 5. Our return function comes last with nice indents
   return (
-    <section className={styles.appContainer}>
-      <div className={styles.sideBar}>
-        <SideBar
-          getApiData={getApiData}
-          searchResult={searchResult}
-          filterParameters={filterParameters}
-          setFilterParameters={setFilterParameters}
-          user={user}
-          signIn={signIn}
-          signOut={signOut}
-        />
-      </div>
-      <div className="dash">
-        <Routes
-          getApiData={getApiData}
-          searchResult={searchResult}
-          filterResults={filterResults}
-          setSearchResult={setSearchResult}
-          user={user}
-          signIn={signIn}
-          signOut={signOut}
-          addToSaved={addToSaved}
-        />
-      </div>
-      <div className={styles.rightbar}>
-      </div>
-    </section>
+    <>
+      <UserProvider>
+        <CrudProvider>
+        <section className={styles.appContainer}>
+          <div className={styles.sideBar}>
+            <SideBar
+              getApiData={getApiData}
+              searchResult={searchResult}
+              filterParameters={filterParameters}
+              setFilterParameters={setFilterParameters}
+              user={user}
+              signIn={signIn}
+              signOut={signOut}
+            />
+          </div>
+          <div className="dash">
+            <Routes
+              getApiData={getApiData}
+              searchResult={searchResult}
+              filterResults={filterResults}
+              setSearchResult={setSearchResult}
+              user={user}
+              signIn={signIn}
+              signOut={signOut}
+              // addToSaved={addToSaved}
+            />
+          </div>
+          <div className={styles.rightbar}>
+          </div>
+        </section>
+    </CrudProvider>
+    </UserProvider>
+  </>
   );
 }
 

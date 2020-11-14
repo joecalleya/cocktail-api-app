@@ -23,13 +23,24 @@ const Filter = (props) => {
     )
     setFilterParameters(updatedArray);
   }
+
+  const toggleFilterAllOff = () => {
+    const updatedArray = [];
+    filterParameters.map((parameter) => {
+        parameter.toggle = false
+        updatedArray.push(parameter)
+    }
+    )
+    setFilterParameters(updatedArray);
+  }
+
   const handleMartiniClick = (e) => {
     e.stopPropagation();
     toggleFilterOnOff("MartiniGlass");
   };
   const handleClearClear = (e) => {
     e.stopPropagation();
-    getApiData("");
+    toggleFilterAllOff()
     console.log("clear")
   };
   const handleTumblerClick = (e) => {

@@ -31,6 +31,9 @@ const SideBar = (props) => {
   return (
     <>
       <div className={styles.SideBar}>
+        <Link to="/">
+          <FontAwesomeIcon icon={["fas", "home"]} />
+        </Link>
         <Link to="SavedDrinks">
           <FontAwesomeIcon icon={["fas", "heart"]} />
         </Link>

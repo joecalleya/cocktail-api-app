@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState, useContext } from "react";
 import styles from './DrinkCard.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CrudContext } from "../../context/crudContext";
 
 
 const DrinkCard = (props) => {
+    const crudContext = useContext(CrudContext);
+    const [isFavorite, setIsFavorite] = useState(false);
+    const { addToSaved,favourites ,removeFromSaved} = crudContext;
 
     const { 
         idDrink,
@@ -18,16 +22,26 @@ const DrinkCard = (props) => {
         // strMeasure11, strMeasure12, strMeasure13, strMeasure14, strMeasure15, strCreativeCommonsConfirmed, dateModified 
     } = props.searchResult;
 
-    const { addToSaved } = props
 
     const handleClick = (e) => {
         e.stopPropagation();
+        console.log(favourites.includes(props.searchResult));
+        if (favourites.includes(props.searchResult))
+        {
+        removeFromSaved(props.searchResult)
+        }
+        else
+        {
         addToSaved(props.searchResult)
+        setIsFavorite(!isFavorite)
+        }
     };
+
+    const heartIcon = isFavorite ? styles.fontAwesome_fav : styles.fontAwesome;
 
     return (
         <div className={styles.resultCard}>
-            <span className={styles.fontAwesome}>
+            <span className={`${heartIcon}`}>
                 <FontAwesomeIcon icon={["fas", "heart"]} onClick={handleClick}
                 />
             </span>

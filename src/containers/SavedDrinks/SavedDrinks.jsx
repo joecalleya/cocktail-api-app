@@ -1,30 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { firestore } from "../../firebase";
 import DrinkCard from '../../components/DrinkCard';
 import styles from "./SavedDrinks.module.scss";
+import { CrudContext } from "../../context/crudContext";
 
 
 const SavedDrinks = (props) => {
 
-  const [favourites, setFavourites] = useState([]);
-
-  const fetchCookbook = () => {
-    firestore
-      .collection("savedCocktails")
-      .get()
-      .then((querySnapshot) => {
-        const favourites = querySnapshot.docs.map((doc) => doc.data());
-        setFavourites(favourites)
-        console.log(favourites)
-      })
-      .catch((err) => console.error(err));
-  };
-
-
-  useEffect(() => {
-    fetchCookbook();
-
-  }, [])
+  const crudContext = useContext(CrudContext);
+  const { favourites } = crudContext;
 
 
   const iteratefavourites = favourites.length ?
