@@ -16,7 +16,6 @@ export const CrudProvider = (props) => {
       .then((querySnapshot) => {
         const favourites = querySnapshot.docs.map((doc) => doc.data());
         setFavourites(favourites)
-        console.log(favourites)
       })
       .catch((err) => console.error(err));
   };
@@ -38,12 +37,11 @@ export const CrudProvider = (props) => {
   const removeFromSaved = (drink) => {
     const query = firestore
       .collection("savedCocktails")
-      .where("idDrink", "==", drink.idDrink)
+      .where("id", "==", drink.id)
       .where("uid", "==", userContext.user.uid);
 
     query.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => doc.ref.delete());
-      console.log("deleted")
       fetchSaved()
     });
   };

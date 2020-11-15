@@ -4,8 +4,8 @@ import styles from './Filter.module.scss';
 
 const Filter = (props) => {
 
-  const { getApiData
-        , filterParameters
+  const {
+         filterParameters
         , setFilterParameters } = props;
 
   //we want to when cliekd allow the user to toggle the TRUE false of the filter paraneter Array.
@@ -14,7 +14,7 @@ const Filter = (props) => {
     const updatedArray = [];
     filterParameters.map((parameter) => {
       if (parameter.name == filtername) {
-        parameter.toggle = !parameter.toggle
+        parameter.isFilterActive = !parameter.isFilterActive
         updatedArray.push(parameter)
       }
       else
@@ -27,7 +27,7 @@ const Filter = (props) => {
   const toggleFilterAllOff = () => {
     const updatedArray = [];
     filterParameters.map((parameter) => {
-        parameter.toggle = false
+        parameter.isFilterActive = false
         updatedArray.push(parameter)
     }
     )
@@ -38,10 +38,9 @@ const Filter = (props) => {
     e.stopPropagation();
     toggleFilterOnOff("MartiniGlass");
   };
-  const handleClearClear = (e) => {
+  const handleClear = (e) => {
     e.stopPropagation();
     toggleFilterAllOff()
-    console.log("clear")
   };
   const handleTumblerClick = (e) => {
     e.stopPropagation();
@@ -52,9 +51,9 @@ const Filter = (props) => {
     toggleFilterOnOff("WineGlass");
   };
 
-  const filterOneOn = filterParameters[0].toggle == true ? styles.filterOn : "";
-  const filterTwoOn = filterParameters[1].toggle == true ? styles.filterOn : "";
-  const filterThreeOn = filterParameters[2].toggle == true ? styles.filterOn : "";
+  const filterOneOn = filterParameters[0].isFilterActive == true ? styles.filterOn : "";
+  const filterTwoOn = filterParameters[1].isFilterActive == true ? styles.filterOn : "";
+  const filterThreeOn = filterParameters[2].isFilterActive == true ? styles.filterOn : "";
 
   return (
     <div className={styles.filtermenu}>
@@ -79,7 +78,7 @@ const Filter = (props) => {
         />
       </span>
       <span
-        onClick={handleClearClear}
+        onClick={handleClear}
       >
         <FontAwesomeIcon icon="times-circle"
         />

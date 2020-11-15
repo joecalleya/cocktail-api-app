@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useContext } from "react";
 import Search from "../Search";
 import styles from './Sidebar.module.scss'
 import Filter from "../Filter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@reach/router";
+import { UserContext } from "../../context/userContext";
 
 
 const SideBar = (props) => {
 
-  const { filteredResults, searchResult
-    , getApiData, filterParameters
+  const userContext = useContext(UserContext);
+  const { signIn, signOut, user } = userContext;
+  const { 
+    filteredResults
+    , searchResults
+    , getApiData
+    , filterParameters
     , setFilterParameters
-    , signIn
-    , signOut
-    , user
   } = props;
 
   const getSignInOutJsx = () => {
@@ -43,7 +46,7 @@ const SideBar = (props) => {
         />
         <Filter
           filterParameters={filterParameters}
-          searchResult={searchResult}
+          searchResults={searchResults}
           filteredResults={filteredResults}
           getApiData={getApiData}
           setFilterParameters={setFilterParameters}

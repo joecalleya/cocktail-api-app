@@ -14,15 +14,13 @@ const SavedDrinks = (props) => {
   const iteratefavourites = favourites.length ?
     favourites.map((item, index) =>
       <DrinkCard
-        searchResult={item}
+        searchResults={item}
         key={index}
       />
     )
     : ('Please Search for cocktal')
   return (
     <div>
-
-
       {iteratefavourites}
     </div>
   )

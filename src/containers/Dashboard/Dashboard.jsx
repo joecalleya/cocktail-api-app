@@ -9,7 +9,7 @@ const Dashboard = (props) => {
     let filterResultsInOneRow = [];
 
     const {
-        searchResult
+        searchResults
         , filterResults
         , } = props;
 
@@ -23,18 +23,17 @@ const Dashboard = (props) => {
         result = filterResultsInOneRow
 
     }
-    else { result = searchResult }
+    //if no filter then show normal search
+    else { result = searchResults }
 
     const contentJsx = result.length ?
         result.map((item, index) =>
             <DrinkCard
-                searchResult={item}
+                searchResults={item}
                 key={index}
             />
         )
         : ('Please Search for cocktal')
-
-    // console.log(searchResult)
 
     return (
         <div className={styles.dashboard}>
