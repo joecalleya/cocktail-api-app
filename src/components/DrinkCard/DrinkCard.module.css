@@ -1,0 +1,37 @@
+.image {
+  display: flex;
+  width: 10%;
+}
+.image .responsiveImage {
+  height: auto;
+  width: 100%;
+}
+
+.resultCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 5%;
+  width: 100%;
+  opacity: 0.9;
+  padding: 1%;
+}
+.resultCard .fontAwesome {
+  font-size: 150%;
+  color: grey;
+  opacity: 0.5;
+}
+.resultCard .fontAwesomeFavorite {
+  font-size: 150%;
+  color: red;
+  opacity: 0.5;
+}
+.resultCard span {
+  width: 2%;
+}
+.resultCard h1 {
+  width: 10%;
+}
+.resultCard p {
+  width: 60%;
+}

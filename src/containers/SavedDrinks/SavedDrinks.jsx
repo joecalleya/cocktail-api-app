@@ -16,7 +16,6 @@ const SavedDrinks = (props) => {
       <DrinkCard
         searchResult={item}
         key={index}
-      // addToSaved={addToSaved}
       />
     )
     : ('Please Search for cocktal')

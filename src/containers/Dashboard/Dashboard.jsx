@@ -9,12 +9,11 @@ const Dashboard = (props) => {
     let filterResultsInOneRow = [];
 
     const {
-        addToSaved
-        , searchResult
+        searchResult
         , filterResults
         , } = props;
 
-
+    //SHOW FILTERED RESULTS, IF THE ARE ANY PUT THEM INTO A RESULTS ARRAY
     if (filterResults.length > 0) {
         filterResults.map((item, index) => {
             filterResultsInOneRow.push(...filterResults[Object.keys(filterResults)[index]])
@@ -26,15 +25,11 @@ const Dashboard = (props) => {
     }
     else { result = searchResult }
 
-    console.log('filter Results', filterResults, 'Search Results', 'Filter Results in 1 row', filterResultsInOneRow)
-
-
     const contentJsx = result.length ?
         result.map((item, index) =>
             <DrinkCard
                 searchResult={item}
                 key={index}
-                addToSaved={addToSaved}
             />
         )
         : ('Please Search for cocktal')

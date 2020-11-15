@@ -15,28 +15,24 @@ const App = () => {
   let filterResults = [];
 
   // 2. then let's define the variable we are keeping in state
+
   const [searchResult, setSearchResult] = useState('');
-  // to show as checkboxes on the page
+
+// set state of filter parms and defult values to false
+
   const [filterParameters, setFilterParameters] = useState([
     { name: "MartiniGlass", toggle: false, columnUsed: 'strGlass', value: "Cocktail glass" },
     { name: "TumblerGlass", toggle: false, columnUsed: 'strGlass', value: "Highball Glass" },
     { name: "WineGlass", toggle: false, columnUsed: 'strGlass', value: "Wine Glass" }
 
   ])
-  // const [filteredResults, setFilteredResults] = useState([]);
   const [user, setUser] = useState(null);
 
   // 3. Put useEffect here for onload events
 
   useEffect(() => {
     getApiData("");
-    getUser();
   }, []);
-
-  // useEffect(() => {
-  //   if (searchResult) init()
-  // }, [searchResult])
-
 
   // 3. Put our functions together
   const getApiData = (searchWords) => {
@@ -49,32 +45,6 @@ const App = () => {
       .catch((err) => {
         console.log(err);
       });
-  };
-
-  const signIn = () => {
-    firebase.auth().signInWithRedirect(provider);
-  };
-
-  const signOut = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        setUser(null);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const getUser = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
   };
 
 
@@ -110,9 +80,7 @@ const App = () => {
               searchResult={searchResult}
               filterParameters={filterParameters}
               setFilterParameters={setFilterParameters}
-              user={user}
-              signIn={signIn}
-              signOut={signOut}
+
             />
           </div>
           <div className="dash">
@@ -121,10 +89,6 @@ const App = () => {
               searchResult={searchResult}
               filterResults={filterResults}
               setSearchResult={setSearchResult}
-              user={user}
-              signIn={signIn}
-              signOut={signOut}
-              // addToSaved={addToSaved}
             />
           </div>
           <div className={styles.rightbar}>
