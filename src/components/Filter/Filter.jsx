@@ -57,7 +57,7 @@ const Filter = (props) => {
 
   return (
     <div className={styles.filtermenu}>
-      <p>filter values:</p>
+      <p>filter:</p>
 
       <span className={`${filterOneOn}`}
         onClick={handleMartiniClick}
