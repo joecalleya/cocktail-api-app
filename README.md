@@ -1,4 +1,41 @@
-This project was created using React, using  the Cocktail Database API, it allows filtering, searching, signing in, saving favorite Cocktails.
+cocklail-api-ap 
+
+Firebase ,joecalleya.dev, https://cocktail-api-app.firebaseapp.com/
+
+React app 
+
+- links to the Cocktail DB using an itergrated search text feature
+- Uses JS to fitler the search reults by muiltple sidebar items
+- Firebase authentication for signing in
+- Firestore for saving favorite drinks to be viewed later
+
+Things to Improve...
+
+- can be made more responsive
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
