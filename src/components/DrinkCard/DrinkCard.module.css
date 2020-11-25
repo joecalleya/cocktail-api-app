@@ -1,6 +1,7 @@
 .image {
   display: flex;
   width: 10%;
+  padding: 0.5%;
 }
 .image .responsiveImage {
   height: auto;
@@ -9,12 +10,12 @@
 
 .resultCard {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   height: 5%;
   width: 100%;
   opacity: 0.9;
-  padding: 1%;
+  border: 5px solid black;
 }
 .resultCard .fontAwesome {
   font-size: 150%;
@@ -31,12 +32,16 @@
 }
 .resultCard h1 {
   width: 5%;
-  font-size: 80%;
+  font-size: 75%;
 }
 .resultCard .ingredients {
   width: 15%;
+  font-size: 70%;
 }
 .resultCard p {
-  width: 40%;
-  font-size: 75%;
+  width: 60%;
+  font-size: 70%;
+}
+.resultCard:hover {
+  transform: scale(1.01);
 }
