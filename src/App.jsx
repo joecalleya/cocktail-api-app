@@ -91,7 +91,6 @@ const App = () => {
 
   init()
 
-  console.log(searchResults.length,filterResults.length,preFilteredResults.length)
   return (
     <>
       <UserProvider>
