@@ -27,14 +27,16 @@
   opacity: 0.5;
 }
 .resultCard span {
-  width: 2%;
+  width: 5%;
 }
 .resultCard h1 {
-  width: 10%;
+  width: 5%;
+  font-size: 80%;
 }
 .resultCard .ingredients {
-  width: 30%;
+  width: 15%;
 }
 .resultCard p {
-  width: 50%;
+  width: 40%;
+  font-size: 75%;
 }
