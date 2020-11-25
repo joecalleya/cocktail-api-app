@@ -18,11 +18,11 @@ const App = () => {
   const [searchResults, setSearchResults] = useState('');
   const [filterParameters, setFilterParameters] = useState([
 
-  // set state of filter parms and defult values to false
+  // set state of filter parameters and default values to false
 
-    { name: "MartiniGlass", isFilterActive: false, columnUsed: 'strGlass', value: "Cocktail glass" },
-    { name: "TumblerGlass", isFilterActive: false, columnUsed: 'strGlass', value: "Highball Glass" },
-    { name: "WineGlass"   , isFilterActive: false, columnUsed: 'strGlass', value: "Wine Glass" }
+    { name: "MartiniGlass", isFilterActive: false, columnUsed: 'glass', value: "Cocktail glass" },
+    { name: "TumblerGlass", isFilterActive: false, columnUsed: 'glass', value: "Highball Glass" },
+    { name: "WineGlass"   , isFilterActive: false, columnUsed: 'glass', value: "Wine Glass" }
 
   ])
 
@@ -52,6 +52,7 @@ const App = () => {
       instructions: drink.strInstructions,
       thumbnail: drink.strDrinkThumb,
       tags: drink.strTags,
+      glass: drink.strGlass,
       ingredients: getIngredients(drink),
       dateCreated: new Date().toUTCString(),
       dateModified: null,
@@ -77,7 +78,7 @@ const App = () => {
       preFilteredResults = searchResults
     }
 
-    // Define a filter function for filtring drinks using the filter array 
+    // Define a filter function for filtering drinks using the filter array 
     filterParameters.forEach(parameter => {
       if (parameter.isFilterActive == true) {
         // This filter is active, let's filter the results by it
@@ -86,10 +87,11 @@ const App = () => {
         );
       }
     })
-    // We have our filtered cocktails, save them in an array variable
   }
 
   init()
+
+  console.log(searchResults.length,filterResults.length,preFilteredResults.length)
   return (
     <>
       <UserProvider>
