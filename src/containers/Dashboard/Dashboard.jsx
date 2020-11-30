@@ -39,7 +39,7 @@ const Dashboard = (props) => {
                 key={index}
             />
         )
-        : ('Please Search for cocktal')
+        : ('Please Search for Cocktails')
 
     return (
         <div className={styles.innerDashboard}>
