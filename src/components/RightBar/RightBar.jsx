@@ -1,20 +1,18 @@
 import React, { useContext } from "react";
-import Search from "../Search";
-import styles from './Sidebar.module.scss'
+import styles from './RightBar.module.scss'
 import Filter from "../Filter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@reach/router";
 import { UserContext } from "../../context/userContext";
 
 
-const SideBar = (props) => {
+const RightBar = (props) => {
 
   const userContext = useContext(UserContext);
   const { signIn, signOut, user } = userContext;
   const { 
     filteredResults
     , searchResults
-    , getApiData
     , filterParameters
     , setFilterParameters
   } = props;
@@ -33,22 +31,13 @@ const SideBar = (props) => {
 
   return (
     <>
-      <div className={styles.SideBar}>
-        <Link to="/">
-          <FontAwesomeIcon icon={["fas", "home"]} />
-        </Link>
-        <Link to="SavedDrinks">
-          <FontAwesomeIcon icon={["fas", "heart"]} />
-        </Link>
-        {getSignInOutJsx()}
-        <Search
-          getApiData={getApiData}
-        />
+      <div className={styles.RightBar}>
+      {getSignInOutJsx()}
+
         <Filter
           filterParameters={filterParameters}
           searchResults={searchResults}
           filteredResults={filteredResults}
-          getApiData={getApiData}
           setFilterParameters={setFilterParameters}
 
         />
@@ -57,4 +46,4 @@ const SideBar = (props) => {
   )
 }
 
-export default SideBar;
+export default RightBar;

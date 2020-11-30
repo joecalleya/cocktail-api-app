@@ -1,0 +1,31 @@
+.innerDashboard {
+  max-height: 800px;
+  min-height: 400px;
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+  background-color: #fbecf5;
+  border-radius: 30px;
+}
+.innerDashboard .LeftBar {
+  width: 15%;
+  background-color: #e7e6f6;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.innerDashboard .searchResults {
+  padding: 3%;
+  border-radius: 30px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.innerDashboard .Search {
+  width: 100%;
+  padding: 2%;
+}
+.innerDashboard .RightBar {
+  width: 15%;
+  background-color: #fcf4f9;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}

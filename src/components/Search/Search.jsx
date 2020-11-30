@@ -7,8 +7,8 @@ const Search = (props) => {
     const { getApiData } = props;
 
     return (
-        <div>
-            <input className={styles.searchbar}
+        <div className={styles.searchbar}>
+            <input 
                 type="Text" placeholder='Search' onInput={e => getApiData(e.target.value)}></input>
             <FontAwesomeIcon icon="search" />
 

@@ -1,8 +1,45 @@
 
-.dashContainer{
-    width:70%;
-    display: flex;
-    flex-direction: column;
-    left:0;
+.innerDashboard{
+  max-height: 800px;
+  min-height: 400px;
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+  background-color:rgb(251,236,245);
+  border-radius: 30px;
+  
+    .LeftBar{
+      width:15%;
+      background-color:rgb(231,230,246);
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+    }
+    .searchResults { 
+      padding: 3%;
+      border-radius: 30px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    .DrinkCard {
+
+  
+    }
+
+    .Search{
+      width:100%;
+      padding: 2%;
+
+
+    }
+
+    .RightBar{
+      width:15%;
+      background-color: rgb(252,244,249);
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+
+    }
+
   }
   

@@ -12,6 +12,8 @@ const Routes = (props) => {
     , getApiData
     , setSearchResults
     , filterResults
+    , filterParameters
+    , setFilterParameters
 
   } = props;
 
@@ -22,7 +24,11 @@ const Routes = (props) => {
         getApiData={getApiData}
         searchResults={searchResults}
         filterResults={filterResults}
-        setSearchResults={setSearchResults}/>
+        setSearchResults={setSearchResults}
+        filterParameters={filterParameters}
+        setFilterParameters={setFilterParameters}
+
+        />
       <PrivateRoutes path="/">
         <SavedDrinks path="SavedDrinks" />
       </PrivateRoutes>

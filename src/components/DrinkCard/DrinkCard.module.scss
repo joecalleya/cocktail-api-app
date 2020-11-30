@@ -1,11 +1,14 @@
+@import "./../../sass/base_typography.scss";
+
 .image {
     display: flex;
     width: 10%;
 
-
     .responsiveImage {
         height: auto;
         width: 100%;
+        border-radius: 10px;
+
     }
 }
 
@@ -15,9 +18,12 @@
     align-items: center;
     height: 5%;
     min-width: 250px;
+    background-color:rgb(255,255,255);
     max-width: 2000px;
-    opacity: 0.9;
+    opacity: 0.8;
     padding: 1%;
+    margin: 1%;
+    border-radius: 5px;
 
 
     .fontAwesome
@@ -56,8 +62,8 @@ p {
 
 }
     &:hover {
-        transform: scale(1.01);
-        font-size: 120%;
+        opacity: 0.9;
+
 
     }
 }
