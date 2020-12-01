@@ -1,6 +1,24 @@
-.SideBar { 
+.LeftBar { 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-items: space-between;
+
+    h1 {
+        font-size: 80%;
+        margin: 30%;
+    }
+
+        .fontAwesome
+    {
+        color: grey;
+        opacity: 0.5;
+        font-size: 150%;
+    }
+    .fontAwesomeFavorite
+    {
+        color:rgb(54,27,131);
+        font-size: 150%;
+    }
 
 }

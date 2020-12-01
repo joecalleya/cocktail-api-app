@@ -2,7 +2,6 @@ import React from "react";
 import { Router } from "@reach/router";
 import Dashboard from "../Dashboard";
 import PrivateRoutes from "../PrivateRoutes";
-import SavedDrinks from "../SavedDrinks";
 
 
 const Routes = (props) => {
@@ -30,7 +29,6 @@ const Routes = (props) => {
 
         />
       <PrivateRoutes path="/">
-        <SavedDrinks path="SavedDrinks" />
       </PrivateRoutes>
 
     </Router>

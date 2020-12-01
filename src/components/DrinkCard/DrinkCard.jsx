@@ -6,7 +6,6 @@ import { CrudContext } from "../../context/crudContext";
 
 const DrinkCard = (props) => {
     const crudContext = useContext(CrudContext);
-    const [isFavorite, setIsFavorite] = useState(false);
     const {toggleFav ,addToSaved,favourites ,removeFromSaved} = crudContext;
 
     const { 

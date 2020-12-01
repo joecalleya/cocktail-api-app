@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useContext,useState } from "react";
 import DrinkCard from '../../components/DrinkCard';
 import styles from './Dashboard.module.scss';
 import Search from '../../components/Search';
 import LeftBar from '../../components/LeftBar';
 import RightBar from '../../components/RightBar';
+import { CrudContext } from "../../context/crudContext";
 
 
 const Dashboard = (props) => {
+
+    const crudContext = useContext(CrudContext);
+    const { favourites } = crudContext;
+
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    const toggleFavoritesView = () => {
+        setIsFavorite(!isFavorite)
+      }
+
+      const toggleFavoritesOff = () => {
+        setIsFavorite(false)
+      }
 
     let result = [];
     let filterResultsInOneRow = [];
@@ -29,7 +43,12 @@ const Dashboard = (props) => {
         result = filterResultsInOneRow
 
     }
-    //if no filter then show normal search
+    // if favorites selected show them
+    else if (isFavorite) 
+    {
+        result = favourites
+    }
+    //if no filter then show normal search or 
     else { result = searchResults }
 
     const contentJsx = result.length ?
@@ -39,17 +58,23 @@ const Dashboard = (props) => {
                 key={index}
             />
         )
-        : ('Please Search for Cocktails')
+        : ('Please un-toggle -favorites and search for Cocktails')
 
     return (
         <div className={styles.innerDashboard}>
             <div className={styles.LeftBar}>
-                <LeftBar />
+                <LeftBar 
+                toggleFavoritesView={toggleFavoritesView}
+                isFavorite={isFavorite}
+
+                />
             </div>
             <div className={styles.searchResults}>
                 <h1>Search for Cocktail's</h1>
                 <div className={styles.Search}>
-                    <Search getApiData={getApiData} />
+                    <Search getApiData={getApiData} 
+                    toggleFavoritesOff={toggleFavoritesOff} 
+                    />
                 </div>
                 <div className={styles.DrinkCard}>
                     {contentJsx}

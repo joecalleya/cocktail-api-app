@@ -1,13 +1,27 @@
 
 .filtermenu
 {
+height: 80%;
 display: flex;
-align-items: center;
+align-items: left;
+justify-content: space-evenly;
 flex-direction: column;
+
+h1{
+    font-size: 100%;
+    padding-bottom: 20%;
+    border-bottom: solid 1px rgba(26,40,67,0.6);
+}
+
+span {
+    margin: 10%;
+    font-size: 100%;
+
+}
 }
 
 .filterOn
 {
-    color:red;
+    color:rgb(54,27,131);
 }
 

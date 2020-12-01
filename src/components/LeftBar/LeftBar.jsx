@@ -2,21 +2,28 @@ import React, { useContext } from "react";
 import styles from './LeftBar.module.scss'
 import Filter from "../Filter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "@reach/router";
-import { UserContext } from "../../context/userContext";
-
 
 const LeftBar = (props) => {
+
+  const { isFavorite,toggleFavoritesView} = props;
+
+
+  const handleClick = (e) => {
+    toggleFavoritesView()
+    e.preventDefault()
+  }
+
+  const heartIcon = isFavorite ? styles.fontAwesomeFavorite : styles.fontAwesome;
+
 
   return (
     <>
       <div className={styles.LeftBar}>
-        <Link to="/">
-          <FontAwesomeIcon icon={["fas", "home"]} />
-        </Link>
-        <Link to="SavedDrinks">
+        <h1>Show Favorites</h1>
+        <span className={`${heartIcon}`} onClick={handleClick}>
           <FontAwesomeIcon icon={["fas", "heart"]} />
-        </Link>
+        </span>
+
        </div>
     </>
   )

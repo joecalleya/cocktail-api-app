@@ -1,0 +1,19 @@
+.LeftBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: space-between;
+}
+.LeftBar h1 {
+  font-size: 80%;
+  margin: 30%;
+}
+.LeftBar .fontAwesome {
+  color: grey;
+  opacity: 0.5;
+  font-size: 150%;
+}
+.LeftBar .fontAwesomeFavorite {
+  color: #361b83;
+  font-size: 150%;
+}

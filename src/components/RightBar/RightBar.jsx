@@ -20,18 +20,29 @@ const RightBar = (props) => {
   const getSignInOutJsx = () => {
     return user ? (
       <span className={styles.faStyles}>
-        <FontAwesomeIcon icon={"sign-out-alt"} onClick={signOut} />
+        Sign Out: <FontAwesomeIcon icon={"sign-out-alt"} onClick={signOut} />
       </span>
     ) : (
         <span className={styles.faStyles}>
-          <FontAwesomeIcon icon={["fab", "google"]} onClick={signIn} />
+          Sign in: <FontAwesomeIcon icon={["fab", "google"]} onClick={signIn} />
         </span>
       );
   };
 
+  const message = (user) ? user.displayName : ('Welcome')
+
+  const photo = (user) ? user.photoURL : ('Please Sign in')
+
+  console.log(photo)
+
   return (
     <>
       <div className={styles.RightBar}>
+        
+      <div className={styles.displayNamePic}>
+      <img src={photo} alt="profile pic"/>
+      <h1>{message}</h1>
+      </div>
       {getSignInOutJsx()}
 
         <Filter
