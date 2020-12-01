@@ -6,11 +6,10 @@
   align-items: center;
   justify-items: center;
   font-family: "Sansita Swashed", cursive;
-  background-color: #fbecf5;
+  background-color: rgba(251, 236, 245, 0.4);
   z-index: 0;
 }
 .appContainer .outerDashboard {
-  height: 90%;
   padding-top: 5%;
   padding-bottom: 5%;
   width: 95%;

@@ -1,14 +1,15 @@
 
 .innerDashboard{
+
   height: 85vh;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  background-color:rgb(251,236,245);
+  background-color:rgb(251,237,245);
   border-radius: 30px;
   
     .LeftBar{
-      width:15%;
+      width:20%;
       background-color:rgb(231,230,246);
       border-top-left-radius: 30px;
       border-bottom-left-radius: 30px;
@@ -36,7 +37,7 @@
     }
 
     .RightBar{
-      width:15%;
+      width:20%;
       background-color: rgb(252,244,249);
       border-top-right-radius: 30px;
       border-bottom-right-radius: 30px;
