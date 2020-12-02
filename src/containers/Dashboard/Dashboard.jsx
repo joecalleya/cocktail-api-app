@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import DrinkCard from '../../components/DrinkCard';
 import styles from './Dashboard.module.scss';
 import Search from '../../components/Search';
@@ -16,11 +16,11 @@ const Dashboard = (props) => {
 
     const toggleFavoritesView = () => {
         setIsFavorite(!isFavorite)
-      }
+    }
 
-      const toggleFavoritesOff = () => {
+    const toggleFavoritesOff = () => {
         setIsFavorite(false)
-      }
+    }
 
     let result = [];
     let filterResultsInOneRow = [];
@@ -44,8 +44,7 @@ const Dashboard = (props) => {
 
     }
     // if favorites selected show them
-    else if (isFavorite) 
-    {
+    else if (isFavorite) {
         result = favourites
     }
     //if no filter then show normal search or 
@@ -63,17 +62,17 @@ const Dashboard = (props) => {
     return (
         <div className={styles.innerDashboard}>
             <div className={styles.LeftBar}>
-                <LeftBar 
-                toggleFavoritesView={toggleFavoritesView}
-                isFavorite={isFavorite}
+                <LeftBar
+                    toggleFavoritesView={toggleFavoritesView}
+                    isFavorite={isFavorite}
 
                 />
             </div>
             <div className={styles.searchResults}>
                 <h1>Search for Cocktail's</h1>
                 <div className={styles.Search}>
-                    <Search getApiData={getApiData} 
-                    toggleFavoritesOff={toggleFavoritesOff} 
+                    <Search getApiData={getApiData}
+                        toggleFavoritesOff={toggleFavoritesOff}
                     />
                 </div>
                 <div className={styles.DrinkCard}>

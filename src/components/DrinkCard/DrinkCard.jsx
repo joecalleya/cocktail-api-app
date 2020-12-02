@@ -6,9 +6,9 @@ import { CrudContext } from "../../context/crudContext";
 
 const DrinkCard = (props) => {
     const crudContext = useContext(CrudContext);
-    const {toggleFav ,addToSaved,favourites ,removeFromSaved} = crudContext;
+    const { toggleFav, addToSaved, favourites, removeFromSaved } = crudContext;
 
-    const { 
+    const {
         name
         , instructions
         , ingredients
@@ -25,23 +25,21 @@ const DrinkCard = (props) => {
         e.stopPropagation();
         toggleFav(props.searchResults);
         setFavState(!isFav);
-      };
+    };
 
     const heartIcon = isFav ? styles.fontAwesomeFavorite : styles.fontAwesome;
 
     return (
         <div className={styles.resultCard}>
-            <span className={`${heartIcon}`}>
-                <FontAwesomeIcon icon={["fas", "heart"]} onClick={handleClick}
-                />
-            </span>
-            <div className={styles.image}>
-                <img className={styles.responsiveImage} src={thumbnail} alt="Drink" />
+            <img className={styles.image} src={thumbnail} alt="Drink" />
+            <div className={styles.name_ingredients}>
+                <h1 className={styles.name}>{name}</h1>
+                <p className={styles.ingredients}>{ingredients}</p>
             </div>
-
-            <h1>{name}</h1>
-            <p  className={styles.ingredients}>{ingredients}</p>
-            <p>{instructions}</p>
+            <span className={`${heartIcon}`}>
+                <FontAwesomeIcon icon={["fas", "heart"]} onClick={handleClick} />
+            </span>
+            <p className={styles.instructions}>{instructions}</p>
 
         </div>
     )

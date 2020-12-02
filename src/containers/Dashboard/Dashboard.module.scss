@@ -1,48 +1,44 @@
-
-.innerDashboard{
-
-  height: 85vh;
+.innerDashboard {
+  min-height: 80vh;
+  max-height: 90vh;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  background-color:rgb(251,237,245);
+  background-color: rgba(251, 237, 245, 0.6);
   border-radius: 30px;
-  
-    .LeftBar{
-      width:20%;
-      background-color:rgb(231,230,246);
-      border-top-left-radius: 30px;
-      border-bottom-left-radius: 30px;
-    }
-    .searchResults { 
-      width: 60%;
-      min-height: 60%;
 
-      padding: 3%;
-      border-radius: 30px;
-      overflow-y: scroll;
-      overflow-x: hidden;
-    }
+  .LeftBar {
+    width: 20%;
+    background-color: rgba(231, 230, 246, 0.8);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
 
-    .DrinkCard {
+  .searchResults {
+    width: 60%;
+    min-height: 60%;
 
-  
-    }
+    padding: 3%;
+    border-radius: 30px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 
-    .Search{
-      width:100%;
-      padding: 2%;
+  .DrinkCard {}
 
+  .Search {
+    width: 100%;
+    padding: 2%;
 
-    }
-
-    .RightBar{
-      width:20%;
-      background-color: rgb(252,244,249);
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
-
-    }
 
   }
-  
+
+  .RightBar {
+    width: 20%;
+    background-color: rgba(252, 244, 249, 0.6);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+  }
+
+}

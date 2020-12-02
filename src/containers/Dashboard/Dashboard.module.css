@@ -1,14 +1,15 @@
 .innerDashboard {
-  height: 85vh;
+  min-height: 80vh;
+  max-height: 90vh;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  background-color: #fbedf5;
+  background-color: rgba(251, 237, 245, 0.6);
   border-radius: 30px;
 }
 .innerDashboard .LeftBar {
   width: 20%;
-  background-color: #e7e6f6;
+  background-color: rgba(231, 230, 246, 0.8);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
@@ -26,7 +27,7 @@
 }
 .innerDashboard .RightBar {
   width: 20%;
-  background-color: #fcf4f9;
+  background-color: rgba(252, 244, 249, 0.6);
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
 }

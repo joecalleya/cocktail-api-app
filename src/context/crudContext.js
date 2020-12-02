@@ -52,7 +52,7 @@ export const CrudProvider = (props) => {
         drink.isFav ? addToSaved(drink) : removeFromSaved(drink);
     } else {
       alert(
-        "You must be logged in to edit your cookbook. Please click the google icon to sign in with your gmail account."
+        "You must be logged in to edit your favorites. Please click the google icon to sign in with your gmail account."
       );
     }
   };

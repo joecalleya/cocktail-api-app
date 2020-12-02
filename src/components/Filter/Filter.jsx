@@ -5,8 +5,8 @@ import styles from './Filter.module.scss';
 const Filter = (props) => {
 
   const {
-         filterParameters
-        , setFilterParameters } = props;
+    filterParameters
+    , setFilterParameters } = props;
 
   //we want to when cliekd allow the user to toggle the TRUE false of the filter paraneter Array.
 
@@ -27,8 +27,8 @@ const Filter = (props) => {
   const toggleFilterAllOff = () => {
     const updatedArray = [];
     filterParameters.map((parameter) => {
-        parameter.isFilterActive = false
-        updatedArray.push(parameter)
+      parameter.isFilterActive = false
+      updatedArray.push(parameter)
     }
     )
     setFilterParameters(updatedArray);
@@ -51,14 +51,16 @@ const Filter = (props) => {
     toggleFilterOnOff("WineGlass");
   };
 
+  //These items allow the styles to be changed when a filter  is active 
   const filterOneOn = filterParameters[0].isFilterActive == true ? styles.filterOn : "";
   const filterTwoOn = filterParameters[1].isFilterActive == true ? styles.filterOn : "";
   const filterThreeOn = filterParameters[2].isFilterActive == true ? styles.filterOn : "";
 
   return (
     <div className={styles.filtermenu}>
-      <h1>filter:</h1>
-      <p>Glass Type:</p>
+      <h1>Filter
+      </h1>
+      <p>Glass Type</p>
 
       <span className={`${filterOneOn}`}
         onClick={handleMartiniClick}
@@ -87,5 +89,4 @@ const Filter = (props) => {
     </div>
   )
 }
-
 export default Filter

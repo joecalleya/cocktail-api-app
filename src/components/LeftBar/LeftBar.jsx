@@ -19,11 +19,10 @@ const LeftBar = (props) => {
   return (
     <>
       <div className={styles.LeftBar}>
-        <h1>Show Favorites</h1>
+        <h1>Favorite's</h1>
         <span className={`${heartIcon}`} onClick={handleClick}>
-          <FontAwesomeIcon icon={["fas", "heart"]} />
+        <FontAwesomeIcon icon={["fas", "heart"]} />
         </span>
-
        </div>
     </>
   )
